@@ -1,0 +1,66 @@
+<odoo>
+
+ 	<record model="ir.ui.view" id="view_form_zpl_report">  <!-- vistas Tree-->
+        	<field name="name">view.form.zpl.report</field>  
+        	<field name="model">zpl.report</field>
+        	<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name"/> <!--Requerido pone en violeta, obligatorio-->
+						<field name="code" required="1" />
+						<field name="model_id" required="1" />
+						<field name="copies" />
+					</group>
+					<notebook>
+						<page string="ZPL" >
+							<field name="zpl" />
+						</page>
+						<page string="Variables">
+							<field name="line_ids">
+								<tree editable="bottom">
+									<field name="name" />
+									<field name="field_id" domain="[('model_id','=',parent.model_id)]"/>
+									<field name="variable" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+            		</form>
+        	</field>
+    	</record> 
+
+
+ 	<record model="ir.ui.view" id="view_tree_zpl_report">  <!-- vistas Tree-->
+        	<field name="name">view.tree.zpl.report</field>  
+        	<field name="model">zpl.report</field>
+        	<field name="arch" type="xml">
+   	         	<tree>
+				<field name="name"/> <!--Requerido pone en violeta, obligatorio-->
+				<field name="code" />
+            		</tree>
+        	</field>
+    	</record> 
+
+    <record id="action_zpl_report" model="ir.actions.act_window">
+        <field name="name">ZPL Report</field>
+        <field name="res_model">zpl.report</field>
+    </record>    
+
+    <menuitem id="menu_zpl_report" name="Reportes ZPL" parent="base.menu_custom" 
+		action="action_zpl_report"
+		sequence="45"/>
+
+ 	<record model="ir.ui.view" id="view_zpl_product_template">  
+        	<field name="name">view.zpl.product.template</field>  
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_only_form_view"></field>
+		<field name="arch" type="xml">
+			<xpath expr="//header" position="inside">
+				<button name="print_label" type="object" string="Imprimir etiqueta" />
+			</xpath>
+        	</field>
+    	</record> 
+
+</odoo>

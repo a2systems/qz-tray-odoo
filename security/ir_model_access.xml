@@ -1,0 +1,27 @@
+<odoo>
+  
+    <!-- Estos registros dan permiso a los modelos nuevos para que se vean en el menú 
+            Le dan permisos al administrador/ajustes a cada modelo 
+    -->
+    
+    <record id="model_access_zpl_report" model="ir.model.access">
+        <field name="name">model.zpl.report</field>
+        <field name="model_id" ref="qz-tray-odoo.model_zpl_report"></field>
+        <field name="group_id" ref="base.group_system"></field>             <!--Administrador/Ajustes-->
+        <field name="perm_read" eval="True"></field>
+        <field name="perm_create" eval="True"></field>
+        <field name="perm_write" eval="True"></field>
+        <field name="perm_unlink" eval="True"></field>
+    </record>
+    
+    <record id="model_access_zpl_report_line" model="ir.model.access">
+        <field name="name">model.zpl.report.line</field>
+        <field name="model_id" ref="qz-tray-odoo.model_zpl_report_line"></field>
+        <field name="group_id" ref="base.group_system"></field>             <!--Administrador/Ajustes-->
+        <field name="perm_read" eval="True"></field>
+        <field name="perm_create" eval="True"></field>
+        <field name="perm_write" eval="True"></field>
+        <field name="perm_unlink" eval="True"></field>
+    </record>
+
+</odoo>

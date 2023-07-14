@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zpl_report,model.zpl.report,model_zpl_report,base.group_system,1,1,1,1
+access_zpl_report_line,model.zpl.report.line,model_zpl_report_line,base.group_system,1,1,1,1
